@@ -1,0 +1,15 @@
+#!/bin/sh
+NAME="systemd"
+VERSION="253"
+SOURCES="https://github.com/systemd/systemd/archive/refs/tags/v$VERSION.tar.gz"
+SHA256SUM="acbd86d42ebc2b443722cb469ad215a140f504689c7a9133ecf91b235275a491  v253.tar.gz"
+DESCRIPTION="The systemd System and Service Manager"
+
+build() {
+    meson --prefix=/usr build/
+    ninja -C build/
+}
+
+install() {
+    DESTDIR=$ROOT ninja -C build/ install
+}
