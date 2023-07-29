@@ -1,10 +1,17 @@
 #!/bin/sh
 NAME="dracut"
-RELEASE="1"
+RELEASE="2"
 VERSION="057"
-SOURCES="https://github.com/dracutdevs/dracut/archive/refs/tags/$VERSION.tar.gz"
-SHA256SUM="24f149d683d188c0d25756529b7d1e5cd6be8028e0c1043110f303d0d706757d  057.tar.gz"
+SOURCES="https://github.com/dracutdevs/dracut/archive/refs/tags/$VERSION.tar.gz;https://gitlab.archlinux.org/archlinux/packaging/packages/dracut/-/raw/main/dracut-install-support-ZSTD-compressed-firmware.patch;https://gitlab.archlinux.org/archlinux/packaging/packages/dracut/-/raw/main/dracut-systemd-253.patch"
+SHA256SUM="24f149d683d188c0d25756529b7d1e5cd6be8028e0c1043110f303d0d706757d  057.tar.gz;8726761a7bc5159417b9fd0c1cf244a7b97e905869bc22b2ebba3f8a7e3ceae7  dracut-install-support-ZSTD-compressed-firmware.patch;948a05c832448dcdab2e3419fdc49ac5542e8f6b1e42bcdbcb4e30ea2bc3e0c2  dracut-systemd-253.patch"
 DESCRIPTION="dracut the event driven initramfs infrastructure"
+
+prepare() {
+    tar -xvf $VERSION.tar.gz
+    cd dracut-057
+    patch -p1 < ../dracut-install-support-ZSTD-compressed-firmware.patch
+    patch -p1 < ../dracut-systemd-253.patch
+}
 
 build() {
     ./configure --disable-documentation --prefix=/usr
