@@ -8,16 +8,18 @@ DESCRIPTION="dracut the event driven initramfs infrastructure"
 
 prepare() {
     tar -xvf $VERSION.tar.gz
-    cd dracut-057
+    cd dracut-057 || exit 1
     patch -p1 < ../dracut-install-support-ZSTD-compressed-firmware.patch
     patch -p1 < ../dracut-systemd-253.patch
 }
 
 build() {
+    cd dracut-057 || exit 1
     ./configure --disable-documentation --prefix=/usr
     make
 }
 
 install() {
+    cd dracut-057 || exit 1
     make DESTDIR=$ROOT install
 }
