@@ -1,8 +1,8 @@
 #!/bin/sh
 NAME="systemd"
-VERSION="253"
+VERSION="254"
 SOURCES="https://github.com/systemd/systemd/archive/refs/tags/v$VERSION.tar.gz"
-SHA256SUM="acbd86d42ebc2b443722cb469ad215a140f504689c7a9133ecf91b235275a491  v253.tar.gz"
+SHA256SUM="244da7605800a358915e4b45d079b0b89364be35da4bc8d849821e67bac0ce62  v254.tar.gz"
 DESCRIPTION="The systemd System and Service Manager"
 
 build() {
