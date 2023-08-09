@@ -1,26 +1,26 @@
 #!/bin/sh
 NAME="dracut"
 RELEASE="2"
-VERSION="057"
+VERSION="059"
 SOURCES="https://github.com/dracutdevs/dracut/archive/refs/tags/$VERSION.tar.gz;https://gitlab.archlinux.org/archlinux/packaging/packages/dracut/-/raw/main/dracut-install-support-ZSTD-compressed-firmware.patch;https://gitlab.archlinux.org/archlinux/packaging/packages/dracut/-/raw/main/dracut-systemd-253.patch"
 DEPENDS="kmod cpio gnu-coreutils"
-SHA256SUM="24f149d683d188c0d25756529b7d1e5cd6be8028e0c1043110f303d0d706757d  057.tar.gz;8726761a7bc5159417b9fd0c1cf244a7b97e905869bc22b2ebba3f8a7e3ceae7  dracut-install-support-ZSTD-compressed-firmware.patch;948a05c832448dcdab2e3419fdc49ac5542e8f6b1e42bcdbcb4e30ea2bc3e0c2  dracut-systemd-253.patch"
+SHA256SUM="eabf0bb685420c1e1d5475b6855ef787104508f0135ff570312845256e0fcecf  059.tar.gz;8726761a7bc5159417b9fd0c1cf244a7b97e905869bc22b2ebba3f8a7e3ceae7  dracut-install-support-ZSTD-compressed-firmware.patch;948a05c832448dcdab2e3419fdc49ac5542e8f6b1e42bcdbcb4e30ea2bc3e0c2  dracut-systemd-253.patch"
 DESCRIPTION="dracut the event driven initramfs infrastructure"
 
 prepare() {
     tar -xvf $VERSION.tar.gz
-    cd dracut-057 || exit 1
+    cd dracut-059 || exit 1
     patch -p1 < ../dracut-install-support-ZSTD-compressed-firmware.patch
     patch -p1 < ../dracut-systemd-253.patch
 }
 
 build() {
-    cd dracut-057 || exit 1
+    cd dracut-059 || exit 1
     ./configure --disable-documentation --prefix=/usr
     make
 }
 
 package() {
-    cd dracut-057 || exit 1
+    cd dracut-059 || exit 1
     make DESTDIR=$ROOT install
 }
