@@ -4,7 +4,7 @@ RELEASE="2"
 VERSION="059"
 SOURCES="https://github.com/dracutdevs/dracut/archive/refs/tags/$VERSION.tar.gz;https://gitlab.archlinux.org/archlinux/packaging/packages/dracut/-/raw/main/dracut-install-support-ZSTD-compressed-firmware.patch;https://gitlab.archlinux.org/archlinux/packaging/packages/dracut/-/raw/main/dracut-systemd-253.patch"
 DEPENDS="kmod cpio gnu-coreutils"
-SHA256SUM="eabf0bb685420c1e1d5475b6855ef787104508f0135ff570312845256e0fcecf  059.tar.gz;8726761a7bc5159417b9fd0c1cf244a7b97e905869bc22b2ebba3f8a7e3ceae7  dracut-install-support-ZSTD-compressed-firmware.patch;948a05c832448dcdab2e3419fdc49ac5542e8f6b1e42bcdbcb4e30ea2bc3e0c2  dracut-systemd-253.patch"
+SHA256SUM="eabf0bb685420c1e1d5475b6855ef787104508f0135ff570312845256e0fcecf;8726761a7bc5159417b9fd0c1cf244a7b97e905869bc22b2ebba3f8a7e3ceae7;948a05c832448dcdab2e3419fdc49ac5542e8f6b1e42bcdbcb4e30ea2bc3e0c2"
 DESCRIPTION="dracut the event driven initramfs infrastructure"
 
 prepare() {
